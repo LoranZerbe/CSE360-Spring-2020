@@ -97,4 +97,46 @@ public class SimpleList {
         return -1;
     }
 
+    /**
+     * This appends an integer at the end of the list
+     * @param num this is the integer the function inserts at the end of the list
+     */
+    public void append(int num) {
+       if(count != list.length) {
+           list[count + 1] = num;
+       } else if(count == list.length) {
+               int[] newList = new int[(int) Math.round(list.length*1.5)];
+               for(int i = 0; i < count; i++) {
+                   newList[i] = list[i];
+               }
+               list = newList;
+               list[count] = num;
+               count++;
+       }
+       return;
+    }
+
+    /**
+     * This returns the first element of the list
+     * @return list[0] this is the first element of the list
+     */
+    public int first() {
+        return list[0];
+    }
+
+    /**
+     * This returns the last element of the list
+     * @return list[count] this is the last element of the list
+     */
+    public int last() {
+        return list[count - 1];
+    }
+
+    /**
+     * This returns the array list size
+     * @return list.length this is the array list size
+     */
+    public int size() {
+        return list.length;
+    }
 }

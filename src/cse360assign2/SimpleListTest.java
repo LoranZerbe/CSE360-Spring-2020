@@ -113,4 +113,96 @@ public class SimpleListTest {
         test.add(1);
         assertEquals(2, test.search(3));
     }
+
+    /**
+     * This tests if the program appends an integer to the list properly
+     */
+    @Test
+    public void testAppend() {
+        SimpleList test = new SimpleList();
+        test.add(10);
+        test.add(9);
+        test.add(8);
+        test.add(7);
+        test.add(6);
+        test.add(5);
+        test.add(4);
+        test.add(3);
+        test.add(2);
+        test.add(1);
+        test.append(11);
+        assertEquals("1 2 3 4 5 6 7 8 9 10 11 0 0 0 0 ", test.toString());
+    }
+
+    /**
+     * This tests if the program returns the first element
+     */
+    @Test
+    public void testFirst() {
+        SimpleList test = new SimpleList();
+        test.add(10);
+        test.add(9);
+        test.add(8);
+        test.add(7);
+        test.add(6);
+        test.add(5);
+        test.add(4);
+        test.add(3);
+        test.add(2);
+        test.add(1);
+        assertEquals(1, test.first());
+    }
+
+    /**
+     * This tests if the program returns the last element
+     */
+    @Test
+    public void testLast() {
+        SimpleList test = new SimpleList();
+        test.add(10);
+        test.add(9);
+        test.add(8);
+        test.add(7);
+        test.add(6);
+        test.add(5);
+        test.add(4);
+        test.add(3);
+        test.add(2);
+        test.add(1);
+        test.remove(1);
+        assertEquals(10, test.last());
+        test.remove(2);
+        assertEquals(10, test.last());
+    }
+
+    /**
+     * This tests if the program returns the array list size
+     */
+    @Test
+    public void testSize() {
+        SimpleList test = new SimpleList();
+        test.add(10);
+        test.add(9);
+        test.add(8);
+        test.add(7);
+        test.add(6);
+        test.add(5);
+        test.add(4);
+        test.add(3);
+        test.add(2);
+        test.add(1);
+        test.remove(1);
+        test.remove(2);
+        assertEquals(10, test.size());
+        test.remove(3);
+        assertEquals(8, test.size());
+        test.remove(4);
+        assertEquals(6, test.size());
+        test.remove(5);
+        assertEquals(6, test.size());
+        test.remove(6);
+        assertEquals(5, test.size());
+        test.remove(7);
+        assertEquals(4, test.size());
+    }
 }
