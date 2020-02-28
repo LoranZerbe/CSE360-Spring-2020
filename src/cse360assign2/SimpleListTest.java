@@ -23,6 +23,7 @@ public class SimpleListTest {
     @Test
     public void testAdd() {
         SimpleList test = new SimpleList();
+        test.add(11);
         test.add(10);
         test.add(9);
         test.add(8);
@@ -33,8 +34,8 @@ public class SimpleListTest {
         test.add(3);
         test.add(2);
         test.add(1);
-        assertEquals(10, test.count());
-        assertEquals("1 2 3 4 5 6 7 8 9 10 ", test.toString());
+        assertEquals(11, test.count());
+        assertEquals("1 2 3 4 5 6 7 8 9 10 11 0 0 0 0 ", test.toString());
     }
 
     /**
@@ -43,19 +44,26 @@ public class SimpleListTest {
     @Test
     public void testRemove() {
         SimpleList test = new SimpleList();
-        test.add(10);
-        test.add(9);
-        test.add(8);
-        test.add(7);
         test.add(6);
         test.add(5);
         test.add(4);
         test.add(3);
         test.add(2);
         test.add(1);
-        assertEquals(10, test.count());
+        test.remove(3);
+        assertEquals("1 2 4 5 6 0 0 0 ", test.toString());
+        assertEquals(5, test.count());
+        test.remove(1);
+        test.remove(2);
         test.remove(6);
-        assertEquals("1 2 3 4 5 7 8 9 10 0 ", test.toString());
+        assertEquals(2, test.count());
+        assertEquals("4 5 0 0 ", test.toString());
+        test.remove(4);
+        assertEquals("5 0 0 ", test.toString());
+        test.remove(5);
+        assertEquals("0 0 ", test.toString());
+        test.add(1);
+        assertEquals("1 0 ", test.toString());
     }
 
     /**

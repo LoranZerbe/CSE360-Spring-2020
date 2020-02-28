@@ -21,6 +21,14 @@ public class SimpleList {
      * @param num this is the integer to be added to the front of the list
      */
     public void add(int num) {
+        if(count == list.length) {
+            int[] newList = new int[(int) Math.round(list.length*1.5)];
+            for(int i = 0; i < list.length; i++) {
+                newList[i] = list[i];
+            }
+            list = newList;
+        }
+
         for(int i = count; i > 0; i--) {
             list[i] = list[i - 1];
         }
@@ -42,6 +50,14 @@ public class SimpleList {
             }
             list[count - 1] = 0;
             count--;
+
+            if((double) count/list.length <= .75 && list.length != 1) {
+                int[] newList = new int[(int) Math.round(list.length*0.75)];
+                for(int i = 0; i < count; i++) {
+                    newList[i] = list[i];
+                }
+                list = newList;
+            }
         }
 
         return;
